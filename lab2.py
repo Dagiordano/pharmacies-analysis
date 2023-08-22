@@ -14,7 +14,7 @@ class Request:
         lista = solicitud.json()
         return lista
     
-class Sumary:
+class Summary:
     def __init__(self, lista):
         self.__data__ = lista
         self.__frequencies__ = {}
@@ -24,6 +24,23 @@ class Sumary:
             nombre_farmacia = i['local_nombre']
             self.__frequencies__[nombre_farmacia]=0
         return self.__frequencies__
+    
+    
+    
+    def __process_element__(self, diccionario):
+        nombre_farmacia = diccionario['local_nombre']
+        if nombre_farmacia in self.__frequencies__:
+            self.__frequencies__[nombre_farmacia]+=1
+        
+    
+    
+    def __build_summary__(self):
+        for i in self.__data__:
+            self.__process_element__(i)
+        
+        
+        
+    
     
     
 
@@ -36,7 +53,7 @@ lista = r.json()
 chica =lista[0]
 
 
-suma= Sumary(lista)
+suma= Summary(lista)
 
 suma.call()
 
