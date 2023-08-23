@@ -83,7 +83,8 @@ class Main(Request, Summary, Filter):
         sumax.__build_summary__()
         fre = sumax.__frequencies__
         fili = Filter(fre)
-        c = fili.apply(cadena)
+        farmacia = input("Ingrese nombre de la farmacia: ")
+        c = fili.apply(farmacia)
         return c
     
     
