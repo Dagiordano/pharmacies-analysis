@@ -85,6 +85,8 @@ suma.__build_summary__()
         
 
 fil = Filter()
+
+fil.apply(cadena)
     
 
         
