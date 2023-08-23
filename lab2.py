@@ -37,6 +37,10 @@ class Summary:
     def __build_summary__(self):
         for i in self.__data__:
             self.__process_element__(i)
+            
+            
+            
+
         
         
         
@@ -55,11 +59,32 @@ chica =lista[0]
 
 suma= Summary(lista)
 
-suma.call()
+
+freq = suma.call()
+
+cadena = 'CRUZ VERDE'
 
 
+
+
+
+
+class Filter:
+    def __init__(self):
+        self.__data__ = freq
+    def apply(self,cadena):
+        if cadena in self.__data__:
+            return self.__data__[cadena]
         
         
+        
+        
+
+
+suma.__build_summary__()
+        
+
+fil = Filter()
     
 
         
