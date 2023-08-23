@@ -52,7 +52,7 @@ class Summary:
 
 
 
-cadena = 'CRUZ VERDE'
+
 
 
 
@@ -76,25 +76,25 @@ class Main(Request, Summary, Filter):
         self.__url__ = "https://andreshoward.com/pharmacies"
     
     def main(self):
-        req = Request()
-        r = req.get()
-        sumax = Summary(r)
-        sumax.call()
-        sumax.__build_summary__()
-        fre = sumax.__frequencies__
-        fili = Filter(fre)
+        request_obj = Request()
+        req_get = request_obj.get()
+        suma_obj = Summary(req_get)
+        suma_obj.call()
+        suma_obj.__build_summary__()
+        freq_list = suma_obj.__frequencies__
+        filt_obj = Filter(freq_list)
         farmacia = input("Ingrese nombre de la farmacia: ")
-        c = fili.apply(farmacia)
+        c = filt_obj.apply(farmacia)
         return c
     
     
 
         
         
-mai = Main()
+main_obj = Main()
 
 
-mai.main()
+main_obj.main()
 
         
         
