@@ -93,6 +93,8 @@ class Main(Request, Summary, Filter):
 mai = Main()
 
 
+mai.main()
+
         
         
 
