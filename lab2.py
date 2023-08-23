@@ -50,17 +50,7 @@ class Summary:
 
 
 
-r = requests.get("https://andreshoward.com/pharmacies")
 
-lista = r.json()
-
-chica =lista[0]
-
-
-suma= Summary(lista)
-
-
-freq = suma.call()
 
 cadena = 'CRUZ VERDE'
 
@@ -70,8 +60,8 @@ cadena = 'CRUZ VERDE'
 
 
 class Filter:
-    def __init__(self):
-        self.__data__ = freq
+    def __init__(self, dic):
+        self.__data__ = dic
     def apply(self,cadena):
         if cadena in self.__data__:
             return self.__data__[cadena]
@@ -81,17 +71,26 @@ class Filter:
         
 
 
-suma.__build_summary__()
-        
-
-fil = Filter()
-
-fil.apply(cadena)
+class Main(Request, Summary, Filter):
+    def __init__(self):
+        self.__url__ = "https://andreshoward.com/pharmacies"
+    
+    def main(self):
+        req = Request()
+        r = req.get()
+        sumax = Summary(r)
+        sumax.call()
+        sumax.__build_summary__()
+        fre = sumax.__frequencies__
+        fili = Filter(fre)
+        c = fili.apply(cadena)
+        return c
+    
     
 
         
         
-
+mai = Main()
 
 
         
